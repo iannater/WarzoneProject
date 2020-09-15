@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Warzone Stats</title>
+    <!-- Bootstrap CSS Link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- Local CSS Link -->
+    <link rel="stylesheet" href="./develop/style.css">
+</head>
+<header>
+    <h1 id="headerH1">Call Of Duty Warzone Stats</h1>
+</header>
+
+<body>
+    <div class="container">
+        <div id="mainCard" class="card">
+            <img src="./assets/warzone.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Input Activision Name to See Stats</h5>
+                <div id="inputAndButton">
+                    <input id="statsInput" placeholder="atxballr123" type="text">
+                    <input id="platInput" placeholder="Enter Platform" type="text">
+                    <a id = "searchButton" href="#" class="btn btn-primary">Get Stats</a>
+                </div>
+            </div>
+            <div id="mainTable">
+                <table>
+                    <tr>
+                        <th>Activistion Name</th>
+                        <th>Time Played</th>
+                        <th>Wins</th>
+                        <th>Top 5</th>
+                        <th>Top 10</th>
+                        <th>Kills</th>
+                        <th>K/D Ratio</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./develop/JavasScript.js"></script>
+</body>
+
+</html>

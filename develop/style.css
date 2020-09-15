@@ -1,0 +1,28 @@
+#headerH1{
+    background-color: grey;
+    text-align: center;
+    padding: 20px;
+}
+
+#mainCard{
+    width: 50%;
+    margin: auto;
+}
+
+.card-title{
+    text-align: center;
+}
+
+#inputAndButton{
+    text-align: center;
+}
+
+table, th, td {
+    border: 1px solid black;
+    padding: 5px;
+  }
+
+#mainTable{
+    margin: auto;
+
+}
