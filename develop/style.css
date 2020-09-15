@@ -5,7 +5,7 @@
 }
 
 #mainCard{
-    width: 50%;
+    width: 80%;
     margin: auto;
 }
 
@@ -25,4 +25,12 @@ table, th, td {
 #mainTable{
     margin: auto;
 
+}
+
+.card{
+    padding: 20px;
+}
+
+.matchBtn{
+    text-align: center;
 }

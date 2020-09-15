@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <!-- Local CSS Link -->
     <link rel="stylesheet" href="./develop/style.css">
+    <!-- Font Awesome Link-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
 </head>
 <header>
     <h1 id="headerH1">Call Of Duty Warzone Stats</h1>
@@ -19,10 +22,10 @@
         <div id="mainCard" class="card">
             <img src="./assets/warzone.png" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Input Activision Name to See Stats</h5>
+                <h5 class="card-title">Input gamer tag to See Stats</h5>
                 <div id="inputAndButton">
                     <input id="statsInput" placeholder="atxballr123" type="text">
-                    <input id="platInput" placeholder="Enter Platform" type="text">
+                    <input id="platInput" placeholder="psn or xbl" type="text">
                     <a id = "searchButton" href="#" class="btn btn-primary">Get Stats</a>
                 </div>
             </div>
@@ -36,8 +39,10 @@
                         <th>Top 10</th>
                         <th>Kills</th>
                         <th>K/D Ratio</th>
+                        <th>Match Stats</th>
                     </tr>
                 </table>
+                <!-- <button class="matchBtn">Click me</button> -->
             </div>
         </div>
     </div>
