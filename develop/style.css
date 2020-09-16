@@ -27,10 +27,21 @@ table, th, td {
 
 }
 
+#matchTable{
+    margin: auto;
+
+}
+
 .card{
     padding: 20px;
 }
 
-.matchBtn{
+#curStats{
     text-align: center;
+    font-size: 30px;
+}
+
+#matchStats{
+    text-align: center;
+    font-size: 30px;
 }
