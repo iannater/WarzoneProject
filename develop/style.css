@@ -45,3 +45,11 @@ table, th, td {
     text-align: center;
     font-size: 30px;
 }
+
+td{
+    font-size: 14px;
+}
+
+th{
+    font-size: 15px;
+}
