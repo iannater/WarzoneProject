@@ -20,6 +20,7 @@ function getCurrentStats(inputValue, platformValue) {
     }
 
     $.ajax(settings).then(function (response) {
+        console.log(response);
         let brRes = response.br
         var kills = brRes.kills;
         var kd = brRes.kdRatio;
