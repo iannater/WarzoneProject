@@ -20,7 +20,7 @@ function getCurrentStats(inputValue, platformValue) {
     }
 
     $.ajax(settings).then(function (response) {
-        console.log(response);
+        console.log();
         let brRes = response.br
         var kills = brRes.kills;
         var kd = brRes.kdRatio;
@@ -29,9 +29,10 @@ function getCurrentStats(inputValue, platformValue) {
         var topFive = brRes.topFive;
         var wins = brRes.wins
         var timePlayed = brRes.timePlayed;
+        var timeDay = (timePlayed / 86400).toFixed(3);
         var statTable = `<tr> 
     <td> ${inputValue} </td>
-    <td> ${timePlayed} </td> 
+    <td> ${timeDay} </td> 
     <td> ${wins} </td> 
     <td> ${topFive} </td> 
     <td> ${topTen} </td> 
@@ -60,7 +61,7 @@ function getMatchStats(inputValue, platformValue) {
 
     $.ajax(settingsMatch).then(function (responseM) {
 
-        
+        // Variables for the summary of last 20 matches
         var matchRes = responseM.summary.all;
         var mKills = matchRes.kills;
         var gulKills = matchRes.gulagKills;
@@ -68,11 +69,17 @@ function getMatchStats(inputValue, platformValue) {
         var headPerConv = headPer * 100
         var headPerConvLim = headPerConv.toFixed(3)
         var mKd = matchRes.kdRatio;
-        var mKdCap = mKd .toFixed(3)
+        var mKdCap = mKd.toFixed(3)
         var killsPerGame = matchRes.killsPerGame;
         var teamsWiped = matchRes.objectiveTeamWiped;
-        var mtimePlayed = matchRes.timePlayed;
-        console.log(matchRes)
+        var mtimePlayed = (matchRes.timePlayed / 3600).toFixed(3);
+        console.log(responseM)
+
+        // Variables for each individual cards
+        let matchCard = responseM.matches;
+
+
+        // Table for the last 20 day stats
 
         var matchTable = `<tr> 
         <td> ${inputValue} </td>
@@ -86,7 +93,39 @@ function getMatchStats(inputValue, platformValue) {
         <td> ${teamsWiped} </td>   
         </tr>`;
 
+        
+
+
+        // This is a for loop that is going through the last 5 matches (it is doing 5 because of my HTML)
+        for (let i = 0; i < matchCard.length; i++) {
+            let matchNumber = i+1;
+            let place = matchCard[i].playerStats.teamPlacement;
+            let cardKills = matchCard[i].playerStats.kills;
+            let cardKd = (matchCard[i].playerStats.kdRatio).toFixed(3);
+            let mode = matchCard[i].mode.substring(5);
+            let cardDeaths = matchCard[i].playerStats.deaths;
+
+            // Table for the per match stats cards
+            var matchCards = `            
+            <div class="cardPopulation">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Match ${matchNumber}</h5>
+                    <p class="card-text">Mode: ${mode} </p>
+                    <p class ="matchStats" id="place">Place: ${place}</p>
+                    <p class ="matchStats" id="kills">Kills: ${cardKills}</p>
+                    <p class ="matchStats" id="deaths">Deaths: ${cardDeaths}</p>
+                    <p class ="matchStats" id="kd">K/D Ratio: ${cardKd}</p>
+                </div>
+            </div>
+        </div>
+            `
+            $('#match'+ matchNumber).append(matchCards);
+        }
+
+
         $('#mTable').append(matchTable);
+        
 
     });
 
@@ -100,7 +139,7 @@ searchButton.addEventListener('click', function (event) {
 
     getCurrentStats(inputValue, platformValue);
     setTimeout(() => {
-    getMatchStats(inputValue, platformValue);
+        getMatchStats(inputValue, platformValue);
     }, 3000);
 
     searchInput.value = '';
@@ -108,6 +147,7 @@ searchButton.addEventListener('click', function (event) {
 });
 
 
+//This is all old stuff I started working on and then changed but might use later. 
 
 // $(".matchBtn").click(function(e){
 //     e.preventDefault();
@@ -129,8 +169,10 @@ searchButton.addEventListener('click', function (event) {
 
 // });
 
-
-
-
-
 //  $('table').val(localStorage.getItem(statTable))
+
+{/* <p class ="matchStats" id="fcd">First Cir Down:</p>
+<p class ="matchStats" id="scd">Second Cir Down:</p>
+<p class ="matchStats" id="tcd">Third Cir Down:</p>
+<p class ="matchStats" id="frcd">Fourth Cir Down:</p>
+<p class ="matchStats" id="ficd">Fifth Cir Down:</p> */}

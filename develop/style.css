@@ -32,7 +32,7 @@ table, th, td {
 
 }
 
-.card{
+.topCard{
     padding: 20px;
 }
 
@@ -53,3 +53,15 @@ td{
 th{
     font-size: 15px;
 }
+
+.cardCont{
+    margin-top: 20px;
+    
+}
+
+.cardPopulation{
+    margin: 10px;
+}
+
+
+
