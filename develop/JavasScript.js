@@ -20,7 +20,6 @@ function getCurrentStats(inputValue, platformValue) {
     }
 
     $.ajax(settings).then(function (response) {
-        console.log();
         let brRes = response.br
         var kills = brRes.kills;
         var kd = brRes.kdRatio;
@@ -99,6 +98,14 @@ function getMatchStats(inputValue, platformValue) {
         // This is a for loop that is going through the last 5 matches (it is doing 5 because of my HTML)
         for (let i = 0; i < matchCard.length; i++) {
             let matchNumber = i+1;
+            let startTimeUtc = matchCard[i].utcStartSeconds;
+            let startTime = new Date(startTimeUtc *1000);
+            let startTimeFinal = startTime.toLocaleString();
+            let dateArray = startTimeFinal.split(",")
+            let date = dateArray[0];
+            let time = dateArray[1];
+            
+            let duration = ((matchCard[i].duration)/60000).toFixed(1);
             let place = matchCard[i].playerStats.teamPlacement;
             let cardKills = matchCard[i].playerStats.kills;
             let cardKd = (matchCard[i].playerStats.kdRatio).toFixed(3);
@@ -110,12 +117,17 @@ function getMatchStats(inputValue, platformValue) {
             <div class="cardPopulation">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Match ${matchNumber}</h5>
-                    <p class="card-text">Mode: ${mode} </p>
-                    <p class ="matchStats" id="place">Place: ${place}</p>
-                    <p class ="matchStats" id="kills">Kills: ${cardKills}</p>
-                    <p class ="matchStats" id="deaths">Deaths: ${cardDeaths}</p>
-                    <p class ="matchStats" id="kd">K/D Ratio: ${cardKd}</p>
+                    <h5 class="card-title matchNumber"><b>Match</b> ${matchNumber}</h5>
+                    <div class="row">
+                    <p class="matchStats col-6"><b>Start Date:</b> ${date} </p>
+                    <p class="matchStats col-6"><b>Start Time:</b> ${time} </p>
+                    </div>
+                    <p class="matchStats"><b>Mode:</b> ${mode} </p>
+                    <p class="matchStats"><b>Minutes:</b> ${duration} </p>
+                    <p class ="matchStats" id="place"><b>Place:</b> ${place}</p>
+                    <p class ="matchStats" id="kills"><b>Kills:</b> ${cardKills}</p>
+                    <p class ="matchStats" id="deaths"><b>Deaths:</b> ${cardDeaths}</p>
+                    <p class ="matchStats" id="kd"><b>K/D Ratio:</b> ${cardKd}</p>
                 </div>
             </div>
         </div>

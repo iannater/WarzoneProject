@@ -46,12 +46,17 @@ table, th, td {
     font-size: 30px;
 }
 
+tr{
+    background-color: lightgray;
+}
+
 td{
     font-size: 14px;
 }
 
 th{
     font-size: 15px;
+    background-color: white;
 }
 
 .cardCont{
@@ -61,6 +66,10 @@ th{
 
 .cardPopulation{
     margin: 10px;
+}
+
+.matchNumber{
+    text-decoration: underline;
 }
 
 
