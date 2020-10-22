@@ -22,11 +22,15 @@
             <img src="./assets/warzone.png" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">Input gamer tag to See Stats</h5>
-                <div id="inputAndButton">
-                    <input id="statsInput" placeholder="atxballr123" type="text">
-                    <input id="platInput" placeholder="psn or xbl" type="text">
-                    <a id="searchButton" href="#" class="btn btn-primary">Get Stats</a>
+                <div id="inputAndButton" class="row justify-content-center">
+                    <input class="col-4" id="statsInput" placeholder="atxballr123" type="text">
+                    <select name="platform" id="platInput">
+                        <option value="psn">psn</option>
+                        <option value="xbl">xbl</option>
+                      </select>
+                   
                 </div>
+                <div class="row justify-content-center"><a id="searchButton" href="#" class="btn btn-primary">Get Stats</a></div>
             </div>
             <div id="mainTable">
                 <div id="curStats">Current Stats</div>

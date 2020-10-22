@@ -132,7 +132,7 @@ function getMatchStats(inputValue, platformValue) {
             </div>
         </div>
             `
-            $('#match'+ matchNumber).append(matchCards);
+            $('#match'+ matchNumber).prepend(matchCards);
         }
 
 
