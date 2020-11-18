@@ -1,5 +1,6 @@
 
 // Taking input and displaying the value into the table
+// Adding this comment to see if it forces a push update
 
 var searchInput = document.getElementById('statsInput');
 var searchButton = document.getElementById('searchButton');
