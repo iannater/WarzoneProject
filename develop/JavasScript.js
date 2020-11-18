@@ -5,6 +5,23 @@ var searchInput = document.getElementById('statsInput');
 var searchButton = document.getElementById('searchButton');
 var platInput = document.getElementById('platInput');
 
+//Listen to teh search and pull the value of the search
+searchButton.addEventListener('click', function (event) {
+    event.preventDefault();
+
+    var inputValue = searchInput.value;
+    var platformValue = platInput.value;
+    console.log(platformValue)
+
+    getCurrentStats(inputValue, platformValue);
+    setTimeout(() => {
+        getMatchStats(inputValue, platformValue);
+    }, 3000);
+
+    searchInput.value = '';
+    platInput.value = '';
+});
+
 // function for the ajax call to get the current stats and populate them to the table 
 
 function getCurrentStats(inputValue, platformValue) {
@@ -143,20 +160,7 @@ function getMatchStats(inputValue, platformValue) {
 
 };
 
-searchButton.addEventListener('click', function (event) {
-    event.preventDefault();
 
-    var inputValue = searchInput.value;
-    var platformValue = platInput.value;
-
-    getCurrentStats(inputValue, platformValue);
-    setTimeout(() => {
-        getMatchStats(inputValue, platformValue);
-    }, 3000);
-
-    searchInput.value = '';
-    platInput.value = '';
-});
 
 
 //This is all old stuff I started working on and then changed but might use later. 
